@@ -40,7 +40,7 @@ class PetitMonstre extends ObjectGraphique {
     draw(ctx) {
         ctx.save();
         ctx.translate(this.x, this.y);
-        ctx.scale(0.5, 0.5);
+        // ctx.scale(0.5, 0.5);
 
         // tete du monstre
         ctx.fillStyle = "black";

@@ -1,6 +1,7 @@
 import Player from "./Player.js";
 import Obstacle from "./Obstacle.js";
 import ObjetSouris from "./ObjetSouris.js";
+import Sortie from "./Sortie.js";
 import { rectsOverlap } from "./collisions.js";
 import { initListeners } from "./ecouteurs.js";
 export default class Game {
@@ -13,6 +14,8 @@ export default class Game {
             mouseX: 0,
             mouseY: 0,
         };
+        this.niveau = 1;
+        this.sortie = null;
     }
 
     async init(canvas) {
@@ -21,24 +24,59 @@ export default class Game {
         this.player = new Player(100, 100);
         this.objetsGraphiques.push(this.player);
 
-        // Un objert qui suite la souris, juste pour tester
+        // Un objet qui suit la souris, juste pour tester
         this.objetSouris = new ObjetSouris(200, 200, 25, 25, "orange");
         this.objetsGraphiques.push(this.objetSouris);
 
-
-        // On cree deux obstacles
-        let obstacle1 = new Obstacle(300, 0, 40, 600, "red");
-        this.objetsGraphiques.push(obstacle1);
-        let obstacle2 = new Obstacle(500, 500, 100, 100, "blue");
-        this.objetsGraphiques.push(obstacle2);
-
         // On ajoute la sortie
-        // TODO
+        this.sortie = new Sortie(this.canvas.width - 100, this.canvas.height - 100, 50, 50);
+        this.objetsGraphiques.push(this.sortie);
+
+        // On initialise le niveau 1
+        this.initNiveau(this.niveau);
 
         // On initialise les écouteurs de touches, souris, etc.
         initListeners(this.inputStates, this.canvas);
 
         console.log("Game initialisé");
+    }
+
+    initNiveau(niveau) {
+        // Supprimer tous les obstacles existants
+        this.objetsGraphiques = this.objetsGraphiques.filter(obj => !(obj instanceof Obstacle));
+
+        // Réinitialiser la position du joueur
+        this.player.x = 100;
+        this.player.y = 100;
+        
+        // Réajouter le player et la sortie
+        this.objetsGraphiques.push(this.player);
+        this.objetsGraphiques.push(this.sortie);
+
+        // Créer les obstacles selon le niveau
+        switch(niveau) {
+            case 1:
+                this.objetsGraphiques.push(new Obstacle(300, 0, 40, 400, "red"));
+                this.objetsGraphiques.push(new Obstacle(500, 500, 100, 100, "blue"));
+                break;
+            case 2:
+                this.objetsGraphiques.push(new Obstacle(300, 200, 40, 400, "red"));
+                this.objetsGraphiques.push(new Obstacle(500, 0, 40, 400, "blue"));
+                break;
+            case 3:
+                this.objetsGraphiques.push(new Obstacle(300, 0, 40, 300, "red"));
+                this.objetsGraphiques.push(new Obstacle(500, 200, 40, 600, "blue"));
+                this.objetsGraphiques.push(new Obstacle(700, 0, 40, 400, "green"));
+                break;
+        }
+
+        // S'assurer que le player et la sortie sont toujours présents
+        if (!this.objetsGraphiques.includes(this.player)) {
+            this.objetsGraphiques.push(this.player);
+        }
+        if (!this.objetsGraphiques.includes(this.sortie)) {
+            this.objetsGraphiques.push(this.sortie);
+        }
     }
 
     start() {
@@ -85,9 +123,25 @@ export default class Game {
         this.objetSouris.x = this.inputStates.mouseX;
         this.objetSouris.y = this.inputStates.mouseY;
 
-        // On regarde si le joueur a atteint la sortie
-        // TODO
+        // On teste si le joueur a atteint la sortie
+        this.testCollisionAvecSortie();
+    }
 
+    testCollisionAvecSortie() {
+        if(rectsOverlap(
+            this.player.x - this.player.w/2, 
+            this.player.y - this.player.h/2, 
+            this.player.w, 
+            this.player.h,
+            this.sortie.x,
+            this.sortie.y,
+            this.sortie.w,
+            this.sortie.h
+        )) {
+            console.log("Niveau " + this.niveau + " terminé !");
+            this.niveau++;
+            this.initNiveau(this.niveau);
+        }
     }
 
     movePlayer() {

@@ -3,7 +3,7 @@ import { drawCircleImmediat } from "./utils.js";
 
 export default class Player extends ObjectGraphique {
     constructor(x, y) {
-        super(x, y, 100, 100);
+        super(x, y, 50, 50);
         this.vitesseX = 0;
         this.vitesseY = 0;
         this.couleur = "pink";
