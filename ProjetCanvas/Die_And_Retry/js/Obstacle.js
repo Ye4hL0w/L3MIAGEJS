@@ -7,8 +7,11 @@ export default class Obstacle extends ObjectGraphique {
 
     draw(ctx) {
         ctx.save();
+        
+        // Draw the main obstacle
         ctx.fillStyle = this.couleur;
-        ctx.fillRect(this.x, this.y, this.w, this.h);
+        ctx.fillRect(this.x - this.w/2, this.y - this.h/2, this.w, this.h);
+
         ctx.restore();
     }
 }

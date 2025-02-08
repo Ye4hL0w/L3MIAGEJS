@@ -26,7 +26,6 @@ export default class Game {
 
         // Un objet qui suit la souris, juste pour tester
         this.objetSouris = new ObjetSouris(200, 200, 25, 25, "orange");
-        this.objetsGraphiques.push(this.objetSouris);
 
         // On ajoute la sortie
         this.sortie = new Sortie(this.canvas.width - 100, this.canvas.height - 100, 50, 50);
@@ -53,21 +52,75 @@ export default class Game {
         this.objetsGraphiques.push(this.player);
         this.objetsGraphiques.push(this.sortie);
 
-        // Créer les obstacles selon le niveau
         switch(niveau) {
             case 1:
-                this.objetsGraphiques.push(new Obstacle(300, 0, 40, 400, "#722F37"));
-                this.objetsGraphiques.push(new Obstacle(500, 500, 100, 100, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(800, 100, 1000, 300, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(500, 650, 1000, 350, "#722F37"));
                 break;
             case 2:
-                this.objetsGraphiques.push(new Obstacle(300, 200, 40, 400, "#722F37"));
-                this.objetsGraphiques.push(new Obstacle(500, 0, 40, 400, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(170, 200, 40, 500, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(300, 470, 300, 40, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(320, 320, 100, 100, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(320, 120, 100, 100, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(460, 240, 40, 500, "#722F37"));
+
+                this.objetsGraphiques.push(new Obstacle(580, 650, 870, 40, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(1000, 600, 40, 1040, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(600, 420, 40, 450, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(680, 100, 450, 40, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(870, 320, 80, 80, "#722F37"));    
+                this.objetsGraphiques.push(new Obstacle(720, 320, 80, 80, "#722F37"));  
+                this.objetsGraphiques.push(new Obstacle(870, 510, 80, 80, "#722F37"));         
+                this.objetsGraphiques.push(new Obstacle(720, 510, 80, 80, "#722F37"));           
                 break;
             case 3:
-                this.objetsGraphiques.push(new Obstacle(300, 0, 40, 300, "#722F37"));
-                this.objetsGraphiques.push(new Obstacle(500, 200, 40, 600, "#722F37"));
-                this.objetsGraphiques.push(new Obstacle(700, 0, 40, 400, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(300, 100, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(500, 100, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(700, 100, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(900, 100, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(1100, 100, 120, 120, "#722F37"));
+
+                this.objetsGraphiques.push(new Obstacle(400, 200, 10, 10, "#722F37"));
+
+                this.objetsGraphiques.push(new Obstacle(100, 300, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(300, 300, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(500, 300, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(700, 300, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(900, 300, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(1100, 300, 120, 120, "#722F37"));
+                
+                this.objetsGraphiques.push(new Obstacle(800, 400, 10, 10, "#722F37"));
+
+                this.objetsGraphiques.push(new Obstacle(100, 500, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(300, 500, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(500, 500, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(700, 500, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(900, 500, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(1100, 500, 120, 120, "#722F37"));
+
+                this.objetsGraphiques.push(new Obstacle(600, 600, 10, 10, "#722F37"));
+
+                this.objetsGraphiques.push(new Obstacle(100, 700, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(300, 700, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(500, 700, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(700, 700, 120, 120, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(900, 700, 120, 120, "#722F37"));
                 break;
+            case 4:
+                this.objetsGraphiques.push(new Obstacle(270, 350, 40, 200, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(320, 250, 120, 40, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(320, 350, 120, 40, "#722F37")); 
+                this.objetsGraphiques.push(new Obstacle(320, 450, 120, 40, "#722F37"));
+
+                this.objetsGraphiques.push(new Obstacle(520, 350, 40, 240, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(640, 350, 40, 240, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(550, 250, 160, 40, "#722F37"));
+
+                this.objetsGraphiques.push(new Obstacle(780, 350, 40, 200, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(820, 250, 120, 40, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(820, 450, 120, 40, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(890, 350, 40, 160, "#722F37"));
+                
         }
 
         // S'assurer que le player et la sortie sont toujours présents
@@ -186,6 +239,7 @@ export default class Game {
             this.player.x = this.player.w/2;
         }
         if(this.player.x + this.player.w/2 > this.canvas.width) {
+            // On stoppe le joueur
             this.player.vitesseX = 0;
             // on le remet au point de contact
             this.player.x = this.canvas.width - this.player.w/2;
@@ -206,20 +260,19 @@ export default class Game {
     testCollisionPlayerObstacles() {
         this.objetsGraphiques.forEach(obj => {
             if(obj instanceof Obstacle) {
-                if(rectsOverlap(this.player.x-this.player.w/2, this.player.y - this.player.h/2, this.player.w, this.player.h, obj.x, obj.y, obj.w, obj.h)) {
-                    // collision
-
-                    // ICI TEST BASIQUE QUI ARRETE LE JOUEUR EN CAS DE COLLIION.
-                    // SI ON VOULAIT FAIRE MIEUX, ON POURRAIT PAR EXEMPLE REGARDER OU EST LE JOUEUR
-                    // PAR RAPPORT A L'obstacle courant : il est à droite si son x est plus grand que le x de l'obstacle + la largeur de l'obstacle
-                    // il est à gauche si son x + sa largeur est plus petit que le x de l'obstacle
-                    // etc.
-                    // Dans ce cas on pourrait savoir comment le joueur est entré en collision avec l'obstacle et réagir en conséquence
-                    // par exemple en le repoussant dans la direction opposée à celle de l'obstacle...
-                    // Là par défaut on le renvoie en x=10 y=10 et on l'arrête
-                    console.log("Collision avec obstacle");
-                    this.player.x = 10;
-                    this.player.y = 10;
+                if(rectsOverlap(
+                    this.player.x - this.player.w/2,
+                    this.player.y - this.player.h/2,
+                    this.player.w,
+                    this.player.h,
+                    obj.x - obj.w/2,
+                    obj.y - obj.h/2,
+                    obj.w,
+                    obj.h
+                )) {
+                    // Replace le joueur à sa position initiale en cas de collision
+                    this.player.x = 100;
+                    this.player.y = 100;
                     this.player.vitesseX = 0;
                     this.player.vitesseY = 0;
                 }

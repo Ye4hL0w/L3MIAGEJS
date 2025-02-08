@@ -2,7 +2,7 @@ import ObjectGraphique from "./ObjectGraphique.js";
 
 export default class Sortie extends ObjectGraphique {
     constructor(x, y, w, h) {
-        super(x, y, w, h, "green");
+        super(x, y, w, h, "#90EE90");
     }
 
     draw(ctx) {
