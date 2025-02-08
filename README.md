@@ -8,11 +8,7 @@ Le projet contient plusieurs applications Canvas développées en JavaScript :
 
 ### 1. Die And Retry
 
-Un jeu de plateforme en 2D "Die And Retry" où le joueur doit éviter les obstacles pour atteindre la sortie. Le jeu comprend :
-- Un système de collision
-- Des obstacles à éviter
-- Un personnage contrôlable
-- Une mécanique de "die and retry"
+Un jeu de plateforme en 2D "Die And Retry" où le joueur doit éviter les obstacles pour atteindre la sortie.
 
 #### Technologies utilisées
 - HTML5 Canvas
