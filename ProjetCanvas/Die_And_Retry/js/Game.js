@@ -56,17 +56,17 @@ export default class Game {
         // Créer les obstacles selon le niveau
         switch(niveau) {
             case 1:
-                this.objetsGraphiques.push(new Obstacle(300, 0, 40, 400, "red"));
-                this.objetsGraphiques.push(new Obstacle(500, 500, 100, 100, "blue"));
+                this.objetsGraphiques.push(new Obstacle(300, 0, 40, 400, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(500, 500, 100, 100, "#722F37"));
                 break;
             case 2:
-                this.objetsGraphiques.push(new Obstacle(300, 200, 40, 400, "red"));
-                this.objetsGraphiques.push(new Obstacle(500, 0, 40, 400, "blue"));
+                this.objetsGraphiques.push(new Obstacle(300, 200, 40, 400, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(500, 0, 40, 400, "#722F37"));
                 break;
             case 3:
-                this.objetsGraphiques.push(new Obstacle(300, 0, 40, 300, "red"));
-                this.objetsGraphiques.push(new Obstacle(500, 200, 40, 600, "blue"));
-                this.objetsGraphiques.push(new Obstacle(700, 0, 40, 400, "green"));
+                this.objetsGraphiques.push(new Obstacle(300, 0, 40, 300, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(500, 200, 40, 600, "#722F37"));
+                this.objetsGraphiques.push(new Obstacle(700, 0, 40, 400, "#722F37"));
                 break;
         }
 
