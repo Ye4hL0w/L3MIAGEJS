@@ -40,7 +40,10 @@ canvas {
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     animation: animCanvas 1.2s ease-out;
+    max-height: 40vw;
+    width: auto;
 }
+
 
 @keyframes animBouton {
     from {
